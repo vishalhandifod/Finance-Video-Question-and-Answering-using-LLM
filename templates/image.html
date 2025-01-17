@@ -20,14 +20,16 @@
                     <div class="d-grid">
                         <button id="predict" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </div>
-                    <br>
-                    <textarea class="form-control" id="paragraphInput" name="paragraph" rows="5" placeholder="">{{ paragraph }}</textarea>
+                    
                 </div>
               
             </form>
-            <div>
-                {{error}}
-            </div>
+           {% if error %}
+        <div style="color: red;">
+            <strong>{{ error }}</strong>
+        </div>
+    {% endif %}
+
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

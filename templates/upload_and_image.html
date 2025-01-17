@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <main class="d-flex align-items-center justify-content-center vh-100">
+        <div class="container shadow-lg p-5 bg-white rounded" style="max-width: 600px;">
+            <h1 class="text-center mb-4">Submit Video or Link</h1>
+
+            <!-- Submit YouTube Link Form -->
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <h3>Submit YouTube Link</h3>
+                    <input type="text" class="form-control" name="link" placeholder="Enter YouTube Link..." value="{{ link }}">
+                    <br>
+                    <div class="d-grid">
+                        <button type="submit" name="submit_link" class="btn btn-primary btn-lg">Submit Link</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            <!-- Upload Video Form -->
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <h3>Upload Video File</h3>
+                    <input type="file" class="form-control" name="video">
+                    <br>
+                    <div class="d-grid">
+                        <button type="submit" name="upload_video" class="btn btn-secondary btn-lg">Upload Video</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Error/Success Messages -->
+            {% if error %}
+                <div style="color: red;">
+                    <strong>{{ error }}</strong>
+                </div>
+            {% elif success %}
+                <div style="color: green;">
+                    <strong>{{ success }}</strong>
+                </div>
+            {% endif %}
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+{% endblock %}

@@ -12,7 +12,7 @@
 		
 		<form class="user" action="" method="post" enctype="multipart/form-data">
 		<div class="dropzone mb-4 ml-4">
-			<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+			<!-- <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" /> -->
 			<input type="file" class="upload-input form-control" name="doc"/>
 		</div>
 
@@ -21,9 +21,13 @@
 		<div class="text-center text-danger">
 			{{ file }}
 		</div>
-		<div class="text-center text-danger">
-			<strong>{{ mgs }}</strong>
-		</div>
+
+    <!-- Display error message -->
+    {% if error %}
+        <div style="color: red;">
+            <strong>{{ error }}</strong>
+        </div>
+    {% endif %}
 
 
 	</div>	
