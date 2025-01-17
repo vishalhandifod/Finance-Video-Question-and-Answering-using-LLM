@@ -1,0 +1,7 @@
+google-generativeai
+Flask
+Werkzeug
+pandas
+deepmultilingualpunctuation
+yt-dlp
+speechrecognition

@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+{% block content %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Project Overview</h1>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Domain</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">AI-Machine Learning</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chalkboard fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Dataset Source</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Kaggle</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tasks Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                Algorithm</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">CNN</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-chart-area fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Framework</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Flask</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-archway fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Default Card Example -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Problem Statment</h6>
+                                </div>
+                                <div class="card-body text-justify">
+                                    The Modi Script Character Recognition project aims to develop a Python-based web application using the Flask framework to recognize handwritten characters from the ancient Modi script. This project is designed to facilitate the digitization and preservation of Modi script, which was historically used for writing Marathi and other Indian languages.
+
+                                    The web application will feature a user-friendly interface with basic login and registration functionality, allowing users to securely access the system. Once logged in, users can either upload an image or click a real-time snapshot of Modi script characters using the system's camera integration. The uploaded or captured image will be processed by a Convolutional Neural Network (CNN) model, specifically trained on a Modi script character dataset sourced from Kaggle.
+                                </div>
+                            </div>
+
+                            <!-- Basic Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Introduction</h6>
+                                </div>
+                                <div class="card-body text-justify">
+
+                                    The CNN model will be trained to accurately identify and classify individual characters from the Modi script. The recognized characters will then be displayed to the user, enabling them to verify the results. This system will contribute to the educational and research fields by offering an easy-to-use tool for recognizing and translating Modi script into digital text, thereby promoting the conservation of this historical writing system.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <!-- Dropdown Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Proposed Solution</h6>
+
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body text-justify">
+                               
+
+
+                                    The Modi script is an ancient writing system that holds significant cultural and historical importance, particularly in the state of Maharashtra, India. Historically used for writing Marathi and other regional languages, Modi script is recognized for its unique characters and distinct structure. However, with the advent of modern digital communication, the use of this script has diminished, leading to concerns about its preservation and accessibility. To address this issue, the Modi Script Character Recognition System aims to bridge the gap between traditional handwriting and contemporary technology.
+
+                                    This project proposes the development of a Python-based web application using the Flask framework, which will enable users to recognize and digitize characters from the Modi script. By leveraging advancements in artificial intelligence and machine learning, specifically Convolutional Neural Networks (CNN), the application will facilitate the identification of handwritten characters, making the script more accessible to a wider audience.
+                                </div>
+                            </div>
+
+                            <!-- Collapsable Card Example -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Conclusion</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseCardExample">
+                                    <div class="card-body text-justify">
+                                    
+
+
+                                        The Modi Script Character Recognition System represents a significant advancement in the digitization and preservation of the Modi script. By leveraging modern technologies such as Convolutional Neural Networks (CNN) and a user-friendly web interface developed in Python using Flask, the system effectively automates the recognition of Modi script characters from images.
+
+                                        This project not only addresses the growing need for accurate and efficient character recognition solutions but also promotes the cultural heritage associated with the Modi script. With features such as user registration, image upload, and real-time processing, the system enhances accessibility and provides a seamless experience for users, regardless of their technical background.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+        {% endblock %}
+
+        </div>
+
+
+
+
+

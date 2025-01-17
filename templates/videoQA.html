@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <main class="d-flex align-items-center justify-content-center vh-100 bg-light">
+        <div class="container shadow-lg p-5 bg-white rounded" style="max-width: 600px;">
+            <h1 class="text-center mb-4 text-primary">Question Answering System</h1>
+
+            <!-- Display the paragraph received from Flask -->
+            <div class="alert alert-info text-center" role="alert">
+                {{ paragraph }}
+            </div>
+
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="questionInput" name="que" placeholder="Type your question here..." value="{{ que }}">
+                </div>
+                <div class="d-grid">
+                    <button id="predict" type="submit" class="btn btn-primary btn-lg">Get Answer</button>
+                </div>
+            </form>
+            <div class="mt-4 p-3 bg-light border rounded">
+                <h5 class="text-secondary">Answer:</h5>
+                <p class="mb-0">{{ answer }}</p>
+            </div>
+            <div>
+                {{error}}
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+{% endblock %}
