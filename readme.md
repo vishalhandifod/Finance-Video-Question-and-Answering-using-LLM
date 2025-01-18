@@ -38,6 +38,12 @@ Before running this project, make sure you have the following installed on your 
    python -m venv venv
    venv\Scripts\activate
 
+   For macOS/Linux users:
+   ```bash
+   pip install virtualenv
+   python3 -m venv venv
+   source venv/bin/activate
+
 ---
 
 
