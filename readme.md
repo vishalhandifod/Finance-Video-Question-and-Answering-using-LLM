@@ -24,7 +24,7 @@ Before running this project, make sure you have the following installed on your 
    ```bash
    python -m ensurepip --upgrade
 
----
+-
 
 ### Setup Instructions:
 
