@@ -8,6 +8,20 @@
 - Finance-related video analysis and response generation
 - Easy-to-set-up project using a Python-based environment
 
+--- 
+
+## Getting Started 🚀
+
+### Prerequisites:
+
+Before running this project, make sure you have the following installed on your machine:
+
+- **Python 3.x** (for the Python-based environment)
+- **pip** (Python's package installer)
+- **Homebrew** (for macOS users to install required dependencies)
+
+---
+
 
 pip install virtualenv - virtual environment
 python -m venv venv - install virtual environment
