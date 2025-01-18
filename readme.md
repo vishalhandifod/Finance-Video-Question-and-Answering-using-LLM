@@ -1,5 +1,4 @@
 # Finance Video Question Answering using Large Language Models 🌟
-## About the Project
 This project is designed to help finance professionals, students, and researchers quickly extract and understand financial information from videos using AI-powered question-answering. By leveraging advanced large language models (LLMs), users can ask questions about finance-related video content and receive accurate, context-aware answers.
 
 ---
@@ -70,5 +69,8 @@ Before running this project, make sure you have the following installed on your 
    python main.py
 
 ---
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
