@@ -54,6 +54,9 @@ Before running this project, make sure you have the following installed on your 
    pip install openai pyttsx3 speechrecognition
    pip install pipwin
    pipwin install pyaudio
+   pip install spacy
+   pip install scikit-learn
+   python -m spacy download en_core_web_sm
 
 5. **Run the project:**
    Once the environment is set up and the dependencies are installed, you can start the project by running the following command:
