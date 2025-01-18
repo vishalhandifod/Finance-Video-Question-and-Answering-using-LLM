@@ -28,7 +28,8 @@ Before running this project, make sure you have the following installed on your 
    Start by cloning the repository to your local machine:
 
    ```bash
-   git clone https://github.com/vishalhandifod/Finance-Video-Question-and-Answering-using-LLM.git
+   git clone 
+https://github.com/vishalhandifod/Finance-Video-Question-and-Answering-using-LLM.git
 
 2. **Set up the virtual environment:**
 
