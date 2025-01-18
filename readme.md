@@ -32,17 +32,17 @@ Before running this project, make sure you have the following installed on your 
 
 2. **Set up the virtual environment:**
 
-- For Windows users:
+- **For Windows users:**
 cmd
 ```pip install virtualenv
 python -m venv venv
-venv\Scripts\activate```
+venv\Scripts\activate
 
-- For macOS/Linux users:
+- **For macOS/Linux users:**
 bash
 ``` install virtualenv
 python3 -m venv venv
-source venv/bin/activate```
+source venv/bin/activate
 
 ---
 
