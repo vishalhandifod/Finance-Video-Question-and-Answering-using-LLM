@@ -44,7 +44,21 @@ Before running this project, make sure you have the following installed on your 
    ```bash
    pip install -r requirements.txt
 
+4. **Install additional libraries:**
+   
+   ```bash
+   pip install openai pyttsx3 speechrecognition
+   pip install pipwin
+   pipwin install pyaudio
+
+5. **Run the project:**
+   Once the environment is set up and the dependencies are installed, you can start the project by running the following command:
+
+   ```bash
+   python main.py
+
 ---
+Install additional libraries 
 
 
 pip install virtualenv - virtual environment python -m venv venv - install virtual environment virtualenv venv - if first one is not working then this venv\Scripts\activate - start environment pip install flask - install flask python main.py - run project pip install -r requirement.txt - run this command to install all the libraries pip install openai pyttsx3 speechrecognition pipwin pipwin install pyaudio
