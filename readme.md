@@ -38,6 +38,7 @@ Before running this project, make sure you have the following installed on your 
    python -m venv venv
    venv\Scripts\activate
 - If the above doesn't work, you can also try:
+  ```bash
    virtualenv venv
    venv\Scripts\activate
 
