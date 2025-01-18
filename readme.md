@@ -100,11 +100,9 @@ How to set up any necessary API keys or environment variables:
 - **Issue**: `ModuleNotFoundError` for `flask`.
 - **Solution**: Make sure to activate your virtual environment before running the project:
   ```bash
-  venv\Scripts\activate  # For Windows
-  source venv/bin/activate  # For macOS/Linux
-  ```
+  venv\Scripts\activate
 
-### 7. **Test Instructions** (if applicable)
+- **Test Instructions** (if applicable)
 If your project has unit tests or needs to be tested, provide instructions on how users can run them:
 
 ```markdown
