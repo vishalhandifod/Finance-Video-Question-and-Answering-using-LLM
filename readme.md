@@ -35,12 +35,18 @@ Before running this project, make sure you have the following installed on your 
 2. **Set up the virtual environment:**
 
 ### For Windows users:
+   Using Command Prompt:
+
    ```bash
    pip install virtualenv
    python -m venv venv
    venv\Scripts\activate
 
 ---
+   ```bash
+   pip install virtualenv
+   python -m venv venv
+   venv\Scripts\activate
 
 
 
