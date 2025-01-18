@@ -38,6 +38,7 @@ cmd
 python -m venv venv
 venv\Scripts\activate
 
+
 2.2. **For macOS/Linux users:**
 bash
 ``` install virtualenv
