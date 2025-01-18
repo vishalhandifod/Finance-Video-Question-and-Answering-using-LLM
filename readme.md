@@ -30,16 +30,16 @@ Before running this project, make sure you have the following installed on your 
    ```bash
    git clone https://github.com/vishalhandifod/Finance-Video-Question-and-Answering-using-LLM.git
 
+---
 2. **Set up the virtual environment:**
 
-2.1. **For Windows users:**
-cmd
-   ```pip install virtualenv
-python -m venv venv
-venv\Scripts\activate
+###For Windows users:
+   ```bash
+   pip install virtualenv
+   python -m venv venv
+   venv\Scripts\activate
 
 ---
-
 
 pip install virtualenv - virtual environment
 python -m venv venv - install virtual environment
