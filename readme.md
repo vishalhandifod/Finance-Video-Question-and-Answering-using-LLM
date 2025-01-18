@@ -22,6 +22,31 @@ Before running this project, make sure you have the following installed on your 
 
 ---
 
+### Setup Instructions:
+
+1. **Clone the repository:**
+   Start by cloning the repository to your local machine:
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+
+2. **Set up the virtual environment:**
+
+- For Windows users:
+cmd
+pip install virtualenv
+python -m venv venv
+venv\Scripts\activate
+
+For macOS/Linux users:
+bash
+pip install virtualenv
+python3 -m venv venv
+source venv/bin/activate
+
+---
+
 
 pip install virtualenv - virtual environment
 python -m venv venv - install virtual environment
