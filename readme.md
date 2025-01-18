@@ -37,6 +37,9 @@ Before running this project, make sure you have the following installed on your 
    pip install virtualenv
    python -m venv venv
    venv\Scripts\activate
+- If the above doesn't work, you can also try:
+   virtualenv venv
+   venv\Scripts\activate
 
 3. **Install required Python packages:**
    After activating the virtual environment, install all the dependencies from the requirements.txt file:
