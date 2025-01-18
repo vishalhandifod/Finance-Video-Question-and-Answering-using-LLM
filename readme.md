@@ -104,12 +104,11 @@ How to set up any necessary API keys or environment variables:
 
 - **Test Instructions** (if applicable)
 If your project has unit tests or needs to be tested, provide instructions on how users can run them:
-
-```markdown
 ## Running Tests
 To ensure everything is working as expected, run the tests:
-```bash
-python -m unittest discover
+   ```bash
+   python -m unittest discover
+ ```
 
 ---
 
