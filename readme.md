@@ -1,3 +1,7 @@
+# Finance Video Question Answering using Large Language Models 🌟
+- This repository integrates a video question-answering system based on large language models (LLMs). This system allows users to ask questions about finance-related videos and receive accurate answers through advanced AI models.
+
+
 pip install virtualenv - virtual environment
 python -m venv venv - install virtual environment
 virtualenv venv - if first one is not working then this 
