@@ -10,7 +10,7 @@ This project is designed to help finance professionals, students, and researcher
 
 --- 
 
-## Getting Started 🖇️
+## Getting Started 📝
 
 ### Prerequisites:
 
@@ -24,7 +24,6 @@ Before running this project, make sure you have the following installed on your 
    ```bash
    python -m ensurepip --upgrade
 
--
 
 ### Setup Instructions:
 
@@ -111,7 +110,7 @@ To ensure everything is working as expected, run the tests:
    
 ---
 
-## License 🪪
+## License ⚖️
 - This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
