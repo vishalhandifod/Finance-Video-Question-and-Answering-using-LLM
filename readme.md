@@ -28,19 +28,18 @@ Before running this project, make sure you have the following installed on your 
    Start by cloning the repository to your local machine:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/vishalhandifod/Finance-Video-Question-and-Answering-using-LLM.git
 
 2. **Set up the virtual environment:**
 
 - For Windows users:
-cmd
+```cmd
 pip install virtualenv
 python -m venv venv
 venv\Scripts\activate
 
-For macOS/Linux users:
-bash
+- For macOS/Linux users:
+```bash
 pip install virtualenv
 python3 -m venv venv
 source venv/bin/activate
