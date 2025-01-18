@@ -38,11 +38,11 @@ Before running this project, make sure you have the following installed on your 
    python -m venv venv
    venv\Scripts\activate
 
-   For macOS/Linux users:
+3. **Install required Python packages:**
+   After activating the virtual environment, install all the dependencies from the requirements.txt file:
+
    ```bash
-   pip install virtualenv
-   python3 -m venv venv
-   source venv/bin/activate
+   pip install -r requirements.txt
 
 ---
 
