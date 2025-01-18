@@ -107,11 +107,11 @@ If your project has unit tests or needs to be tested, provide instructions on ho
 To ensure everything is working as expected, run the tests:
    ```bash
    python -m unittest discover
- ```
+   ```
 
 ---
 
-## License
+- **License**
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
