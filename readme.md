@@ -70,6 +70,18 @@ Before running this project, make sure you have the following installed on your 
 
 ---
 
+## Setting Up API Keys
+How to set up any necessary API keys or environment variables:
+
+1. Create an account on [OpenAI](https://beta.openai.com/signup/)
+2. Obtain your API key from the [OpenAI dashboard](https://beta.openai.com/account/api-keys)
+3. Create a `.env` file in the root of your project and add your API key:
+   ```bash
+   OPENAI_API_KEY=your-api-key-here
+   ```
+   
+---
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
