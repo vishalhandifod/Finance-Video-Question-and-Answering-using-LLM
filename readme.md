@@ -34,7 +34,7 @@ Before running this project, make sure you have the following installed on your 
 
 2.1. **For Windows users:**
 cmd
-```pip install virtualenv
+   ```pip install virtualenv
 python -m venv venv
 venv\Scripts\activate
 
