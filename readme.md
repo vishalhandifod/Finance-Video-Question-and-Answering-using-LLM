@@ -33,14 +33,14 @@ Before running this project, make sure you have the following installed on your 
 2. **Set up the virtual environment:**
 
 - For Windows users:
-```cmd
-pip install virtualenv
+cmd
+```pip install virtualenv
 python -m venv venv
 venv\Scripts\activate```
 
 - For macOS/Linux users:
-```bash
-pip install virtualenv
+bash
+``` install virtualenv
 python3 -m venv venv
 source venv/bin/activate```
 
