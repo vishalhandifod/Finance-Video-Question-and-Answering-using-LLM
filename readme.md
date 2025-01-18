@@ -10,7 +10,7 @@ This project is designed to help finance professionals, students, and researcher
 
 --- 
 
-## Getting Started 🚀
+## Getting Started 🖇️
 
 ### Prerequisites:
 
@@ -70,7 +70,7 @@ Before running this project, make sure you have the following installed on your 
 
 ---
 
-## Setting Up API Keys
+## Setting Up API Keys 🔐
 How to set up any necessary API keys or environment variables:
 
 1. Create an account on [OpenAI](https://beta.openai.com/signup/)
@@ -83,12 +83,12 @@ How to set up any necessary API keys or environment variables:
    
 ---
 
-## Demo
+## Demo 🚀
 Coming soon....
 
 ---
 
-## Known Issues & Troubleshooting
+## Known Issues & Troubleshooting ⚠️
 
 - **Issue**: Error when installing `pyaudio` on Windows.
 - **Solution**: Install `pyaudio` using `pipwin`:
@@ -111,7 +111,7 @@ To ensure everything is working as expected, run the tests:
    
 ---
 
-## License
+## License 🪪
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
