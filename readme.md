@@ -16,9 +16,13 @@
 
 Before running this project, make sure you have the following installed on your machine:
 
-- **Python 3.x** (for the Python-based environment)
-- **pip** (Python's package installer)
-- **Homebrew** (for macOS users to install required dependencies)
+1. **Install Python 3.x:**
+   Download and install Python from the official website: [python.org](https://www.python.org/downloads/).
+
+2. **Install pip:**
+   `pip` is included with Python 3. Ensure it's installed by running:
+   ```bash
+   python -m ensurepip --upgrade
 
 ---
 
