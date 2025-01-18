@@ -84,7 +84,7 @@ How to set up any necessary API keys or environment variables:
 ---
 
 ## Demo
-![Demo GIF](demo.gif)
+Coming soon....
 
 ---
 
@@ -103,8 +103,7 @@ How to set up any necessary API keys or environment variables:
   venv\Scripts\activate
 
 - **Test Instructions** (if applicable)
-If your project has unit tests or needs to be tested, provide instructions on how users can run them:
-## Running Tests
+If your project has unit tests or needs to be tested, provide instructions on how users can run them: Running Tests
 To ensure everything is working as expected, run the tests:
    ```bash
    python -m unittest discover
