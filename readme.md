@@ -31,9 +31,7 @@ Before running this project, make sure you have the following installed on your 
    git clone https://github.com/vishalhandifod/Finance-Video-Question-and-Answering-using-LLM.git
 
 2. **Set up the virtual environment:**
-
-### For Windows users:
-   Using Command Prompt:
+   For Windows users
 
    ```bash
    pip install virtualenv
