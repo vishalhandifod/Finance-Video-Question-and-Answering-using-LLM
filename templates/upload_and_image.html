@@ -1,48 +1,213 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
 
-    <main class="d-flex align-items-center justify-content-center vh-100">
-        <div class="container shadow-lg p-5 bg-white rounded" style="max-width: 600px;">
-            <h1 class="text-center mb-4">Submit Video or Link</h1>
+<main class="d-flex align-items-center justify-content-center vh-100 bg-light">
+  <style>
+    /* Apply global font styling */
+    * {
+      font-family: "Space Grotesk", sans-serif !important;
+    }
 
-            <!-- Submit YouTube Link Form -->
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="mb-4">
-                    <h3>Submit YouTube Link</h3>
-                    <input type="text" class="form-control" name="link" placeholder="Enter YouTube Link..." value="{{ link }}">
-                    <br>
-                    <div class="d-grid">
-                        <button type="submit" name="submit_link" class="btn btn-primary btn-lg">Submit Link</button>
-                    </div>
-                </div>
-            </form>
+    /* Button active color */
+    .btn-active {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
 
-            <hr>
+    /* Ensure container background stays the same */
+    #container {
+      background-color: #fcfbf9 !important;
+    }
+  </style>
 
-            <!-- Upload Video Form -->
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="mb-4">
-                    <h3>Upload Video File</h3>
-                    <input type="file" class="form-control" name="video">
-                    <br>
-                    <div class="d-grid">
-                        <button type="submit" name="upload_video" class="btn btn-secondary btn-lg">Upload Video</button>
-                    </div>
-                </div>
-            </form>
+  <div
+    id="container"
+    class="container shadow-lg p-5 bg-white rounded"
+    style="
+      max-width: 1000px;
+      min-height: calc(60vh - 60px);
+      width: 100%;
+      padding: 4rem;
+      box-shadow: 0 4px 10px rgb(0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #fcfbf9 !important;
+      position: relative;
+      overflow: hidden;
+    "
+  >
+    <!-- Title Section with Border -->
+    <h1
+      class="text-center mb-4 text-primary"
+      style="
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #000000;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 10px;
+      "
+    >
+      Submit Url or Upload File
+    </h1>
 
-            <!-- Error/Success Messages -->
-            {% if error %}
-                <div style="color: red;">
-                    <strong>{{ error }}</strong>
-                </div>
-            {% elif success %}
-                <div style="color: green;">
-                    <strong>{{ success }}</strong>
-                </div>
-            {% endif %}
+    <!-- Toggle Options -->
+    <div class="d-flex justify-content-center mb-4">
+      <button
+        id="showUrlForm"
+        class="btn btn-outline-primary mx-2"
+        onclick="showForm('url')"
+      >
+        Submit YouTube URL
+      </button>
+      <button
+        id="showFileForm"
+        class="btn btn-outline-primary mx-2"
+        onclick="showForm('file')"
+      >
+        Upload Video File
+      </button>
+    </div>
+
+    <!-- Submit YouTube Link Form -->
+    <form
+      id="urlForm"
+      action=""
+      method="post"
+      enctype="multipart/form-data"
+      class="form-section"
+    >
+      <div class="mb-4">
+        <h3 class="text-primary">Submit YouTube URL</h3>
+        <input
+          id="youtubeInput"
+          type="text"
+          class="form-control form-control-lg"
+          name="link"
+          placeholder=""
+          value="{{ link }}"
+          style="font-size: 1.1rem; padding: 15px"
+        />
+        <br />
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            name="submit_link"
+            class="btn btn-primary btn-lg"
+          >
+            Submit URL
+          </button>
         </div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      </div>
+    </form>
+
+    <!-- Upload Video Form -->
+    <form
+      id="fileForm"
+      action=""
+      method="post"
+      enctype="multipart/form-data"
+      class="form-section d-none"
+    >
+      <div class="mb-4">
+        <h3 class="text-primary">Upload Video File</h3>
+        <input
+          type="file"
+          class="form-control"
+          name="video"
+          style="font-size: 1.1rem; padding: 15px"
+        />
+        <br />
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            name="upload_video"
+            class="btn btn-primary btn-lg"
+          >
+            Upload Video
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Error/Success Messages -->
+    {% if error %}
+    <div style="color: red">
+      <strong>{{ error }}</strong>
+    </div>
+    {% elif success %}
+    <div style="color: green">
+      <strong>{{ success }}</strong>
+    </div>
+    {% endif %}
+  </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  function showForm(type) {
+    const container = document.getElementById("container");
+    const urlForm = document.getElementById("urlForm");
+    const fileForm = document.getElementById("fileForm");
+
+    // Show the appropriate form
+    if (type === "url") {
+      urlForm.classList.remove("d-none");
+      fileForm.classList.add("d-none");
+      // Do not change container background color
+    } else if (type === "file") {
+      fileForm.classList.remove("d-none");
+      urlForm.classList.add("d-none");
+      // Do not change container background color
+    }
+
+    // Reset button colors
+    document.getElementById("showUrlForm").classList.remove("btn-active");
+    document.getElementById("showFileForm").classList.remove("btn-active");
+
+    // Add active color to the clicked button
+    if (type === "url") {
+      document.getElementById("showUrlForm").classList.add("btn-active");
+    } else if (type === "file") {
+      document.getElementById("showFileForm").classList.add("btn-active");
+    }
+  }
+
+  // Placeholder typing effect
+  const placeholderWords = [
+    "Enter YouTube URL...",
+    "Paste the link here...",
+    "Submit your video URL...",
+  ];
+  const inputElement = document.getElementById("youtubeInput");
+  let wordIndex = 0;
+  let charIndex = 0;
+  let currentWord = "";
+
+  function typePlaceholder() {
+    if (charIndex < placeholderWords[wordIndex].length) {
+      currentWord += placeholderWords[wordIndex][charIndex];
+      inputElement.placeholder = currentWord;
+      charIndex++;
+      setTimeout(typePlaceholder, 100); // Adjust typing speed
+    } else {
+      setTimeout(() => {
+        charIndex = 0;
+        currentWord = "";
+        wordIndex = (wordIndex + 1) % placeholderWords.length;
+        typePlaceholder();
+      }, 2000); // Pause before next word
+    }
+  }
+
+  // Start the typing effect on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    typePlaceholder();
+  });
+</script>
 
 {% endblock %}
+
