@@ -50,7 +50,7 @@ def login():
         )
         try:
             name = cursorObj.fetchone()[0]
-            return redirect(url_for("image"))
+            return redirect(url_for("upload_and_image"))
         except:
             error = "Invalid Credentials Please try again..!!!"
             return render_template("login.html", error=error)
@@ -137,7 +137,7 @@ def dashboard():
 def upload_and_image():
     global paragraph
     global name
-
+    link = ""
     error = ""
     success = ""
 
@@ -203,7 +203,7 @@ def upload_and_image():
     # Render the combined page with error/success messages
     return render_template(
         "upload_and_image.html",
-        link=None,
+        link=link,
         error=error,
         success=success,
     )
@@ -254,7 +254,8 @@ def image():
 def qa():
     global name
     global paragraph
-
+    if "chat_history" not in session:
+        session["chat_history"] = []
     askBot(
         "This is transcribe text from the video: "
         + paragraph
@@ -263,11 +264,14 @@ def qa():
     )
 
     if request.method == "POST":
-        que = request.form["que"]
+        que = request.form.get("que", "").strip()
         # print(paragraph)
-        answer = askBot(que)
-        return render_template("qa.html", name=name, que=que, answer=answer)
-    return render_template("qa.html", name=name)
+        if que:
+            answer = askBot(que)  # Get chatbot response
+            session["chat_history"].append((que, answer))  # Store in session
+            session.modified = True  # Save session changes
+        # return render_template("qa.html", name=name, que=que, answer=answer)
+    return render_template("qa.html", chat_history=session["chat_history"])
 
 
 
@@ -317,54 +321,12 @@ def upload():
     return render_template("upload.html", error=error, success=success)
 
 
-
-
-# @app.route("/videoQA", methods=["GET", "POST"])
-# def vqa():
-#     global name
-#     global paragraph
-
-#     clip = VideoFileClip("upload/test.mp4")
-#     clip.audio.write_audiofile("audio.wav")
-#     audio = sr.AudioFile("audio.wav")
-#     chunk_paths = split_audio("audio.wav")
-#     paragraphs = []
-
-#     for chunk_path in chunk_paths:
-#                 # Transcribe each chunk
-#                 audio = sr.AudioFile(chunk_path)
-#                 with audio as source:
-#                     audio_file = r.record(source)
-#                 paragraphs.append(r.recognize_google(audio_file))
-
-#     # Combine all the transcriptions
-#     paragraph = " ".join(paragraphs)
-
-
-#     askBot(
-#         "This is transcribe text from the video: "
-#         + paragraph
-#         + "------------------------"
-#         " read given paragraph properly next i'll ask some questions on it, give me answers related to this paragraph only and give simple and short answers"
-#     )
-
-#     if request.method == "POST":
-#         que = request.form["que"]
-#         # print(paragraph)
-#         answer = askBot(que)
-#         return render_template(
-#             "videoQA.html",
-#             name=name,
-#             que=que,
-#             answer=answer,
-#             paragraph=paragraph
-            
-#         )
-#     return render_template("videoQA.html", name=name, paragraph=paragraph)
 @app.route("/videoQA", methods=["GET", "POST"])
 def vqa():
     global paragraph  
     # print(paragraph)
+    if "video_chat_history" not in session:
+        session["video_chat_history"] = []
     askBot(
         "This is transcribe text from the video: "
         + paragraph
@@ -372,13 +334,15 @@ def vqa():
         " read given video Script properly next i'll ask some questions on it, give me answers related to this videoScript only and give simple and short answers "
     )
     if request.method == "POST":
-        que = request.form["que"]
-        answer = askBot(que)
+        que = request.form.get("que", "").strip()
+        if que:
+            answer = askBot(que)  # Get chatbot response
+            session["video_chat_history"].append((que, answer))  # Store in session
+            session.modified = True  # Save session changes
+        # answer = askBot(que)
         return render_template(
             "videoQA.html",
-            paragraph=paragraph,
-            que=que,
-            answer=answer,
+            video_chat_history=session["video_chat_history"]
         )
 
     return render_template("videoQA.html", paragraph=paragraph)

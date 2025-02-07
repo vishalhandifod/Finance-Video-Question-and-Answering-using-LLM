@@ -1,0 +1,25 @@
+body {
+    font-family: "Space Grotesk", sans-serif !important;
+    background-color: #fcfbf9;
+  }
+
+  .container {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgb(0, 0, 0); /* Keeps shadow but removes extra border */
+  }
+
+  /* Button active color */
+  .btn-active {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Ensure container background stays the same */
+  #container {
+    background-color: #fcfbf9 !important;
+  }
+  #video_upload_opt{
+      height: calc(1.5em + 0.75rem + 10px) !important;
+      padding: 0.375rem 0.75rem !important;
+  }

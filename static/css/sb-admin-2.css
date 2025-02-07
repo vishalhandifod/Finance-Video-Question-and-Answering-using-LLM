@@ -10608,6 +10608,7 @@ a:focus {
 
 .topbar {
   height: 4.375rem;
+  margin-bottom: 50px !important;
 }
 
 .topbar #sidebarToggleTop {
