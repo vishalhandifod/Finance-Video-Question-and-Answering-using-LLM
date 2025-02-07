@@ -1,36 +1,250 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/image.css" rel="stylesheet">
-    <title>Question Answering System</title>
-</head>
-<body>
-    <main class="d-flex align-items-center justify-content-center vh-100 bg-light">
-        <div class="container shadow-lg p-5 bg-white rounded" style="max-width: 600px;">
-            <h1 class="text-center mb-4 text-primary">Question Answering System</h1>
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    
-                    <input type="text" class="form-control" id="questionInput" name="que" placeholder="Type your question here..." value="{{ que }}">
-                </div>
-                <div class="d-grid">
-                    <button id="predict" type="submit" class="btn btn-primary btn-lg">Get Answer</button>
-                </div>
-            </form>
-            <div class="mt-4 p-3 bg-light border rounded">
-                <h5 class="text-secondary">Answer:</h5>
-                <p class="mb-0">{{ answer }}</p>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="static/css/image.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="static/img/tab_logo.png" />
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif !important;
+        background-color: #fcfbf9;
+        color: #fcfbf9;
+      }
+
+      .text-center h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #000000; /* Restored original title color */
+        border-bottom: 2px solid #000000; /* Restored original underline */
+        padding-bottom: 10px;
+      }
+
+      .btn-5 {
+        font-family: "Space Grotesk", sans-serif !important;
+        width: 100%;
+        color: #f8f9fa;
+        height: 40px;
+        line-height: 42px;
+        padding: 0;
+        border: none;
+        background: linear-gradient(0deg, #1f1f1f, #1f1f1f 100%);
+        position: relative;
+        text-align: center;
+        transition: 400ms ease all;
+      }
+
+      .btn-5 span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 1.5rem;
+      }
+
+      .btn-5:before,
+      .btn-5:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #000000;
+        transition: 400ms ease all;
+      }
+
+      .btn-5:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+
+      .btn-5:hover {
+        color: #000000;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .btn-5:hover:before,
+      .btn-5:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+
+      .container {
+        max-width: 1000px;
+        min-height: calc(60vh - 60px);
+        width: 100%;
+        padding: 4rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #fcfbf9;
+        position: relative;
+        overflow: hidden;
+      }
+
+      input.form-control {
+        font-family: "Space Grotesk", sans-serif !important;
+        font-size: 1.2rem;
+        border: 1px solid #000000;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        color: #000000;
+      }
+
+      .answer-box {
+        border: 2px solid #000000;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgb(0, 0, 0);
+        max-height: 500px;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        color: #000000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+      }
+
+      .answer-box.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          max-width: 95%;
+          padding: 1rem;
+        }
+
+        .btn-5 {
+          width: 100%;
+          height: 35px;
+        }
+      }
+
+      .button-right {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .answer-box-container {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="d-flex align-items-center justify-content-center vh-100">
+      <div
+        class="container shadow-lg p-5 rounded"
+        style="
+          max-width: 1000px;
+          min-height: calc(60vh - 60px);
+          width: 100%;
+          padding: 4rem;
+          box-shadow: 0 4px 10px rgb(0, 0, 0) !important;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-color: #fcfbf9;
+          position: relative;
+          overflow: hidden;
+        "
+      >
+        <!-- Title Section -->
+        <div class="text-center mb-4">
+          <h1>Smart Question Answering System</h1>
         </div>
+
+        <!-- Answer Section (Initially Hidden) -->
+        <div class="answer-box-container" id="answerBoxContainer">
+          <div class="mt-4 p-3 border rounded answer-box" id="answerBox">
+            <h5 class="text-secondary">Answer</h5>
+            <p class="mb-0" id="answerText">{{ answer }}</p>
+          </div>
+        </div>
+
+        <!-- Form Section -->
+        <form action="" method="post" enctype="multipart/form-data">
+          <div class="mb-4">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="questionInput"
+              name="que"
+              placeholder=""
+              value="{{ que }}"
+            />
+          </div>
+
+          <!-- Button Section Aligned to the Right -->
+          <div class="button-right">
+            <button
+              id="predict"
+              type="submit"
+              class="custom-btn btn-5"
+              onclick="showAnswer(event)"
+            >
+              <span>Get Answer</span>
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-</body>
+
+    <script>
+      // Typewriter effect for the placeholder
+      const placeholderText = "Type your question...";
+      const inputField = document.getElementById("questionInput");
+      let letterIndex = 0;
+
+      function animatePlaceholder() {
+        if (letterIndex < placeholderText.length) {
+          inputField.setAttribute(
+            "placeholder",
+            placeholderText.substring(0, letterIndex + 1)
+          );
+          letterIndex++;
+          setTimeout(animatePlaceholder, 150);
+        }
+      }
+
+      function showAnswer(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const answerBox = document.getElementById("answerBox");
+        const answerContainer = document.getElementById("answerBoxContainer");
+
+        // Ensure answer box is visible
+        answerBox.classList.add("show");
+
+        // Scroll answer into view
+        answerContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      animatePlaceholder();
+    </script>
+  </body>
 </html>
 
 {% endblock %}
