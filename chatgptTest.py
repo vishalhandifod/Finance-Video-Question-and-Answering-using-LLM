@@ -16,7 +16,6 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 if not openai.api_key:
     raise ValueError("API key is not set. Please set the OPENAI_API_KEY environment variable.")
-# openai.api_key = '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'
 messages = [ {"role": "system", "content": "You are a intelligent assistant."} ]
 
 def askBot(msg):
