@@ -3,31 +3,11 @@
   href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
   rel="stylesheet"
 />
-
+<link href="static/css/image_and_upload.css" rel="stylesheet" />
 <main class="d-flex align-items-center justify-content-center vh-100 bg-light">
   <style>
     /* Apply global font styling */
-    body {
-      font-family: "Space Grotesk", sans-serif !important;
-      background-color: #fcfbf9;
-    }
-
-    .container {
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgb(0, 0, 0); /* Keeps shadow but removes extra border */
-    }
-
-    /* Button active color */
-    .btn-active {
-      background-color: #000000 !important;
-      color: #ffffff !important;
-    }
-
-    /* Ensure container background stays the same */
-    #container {
-      background-color: #fcfbf9 !important;
-    }
+   
   </style>
 
   <div
@@ -79,37 +59,19 @@
       </button>
     </div>
 
-    <!-- Submit YouTube Link Form -->
-    <form
-      id="urlForm"
-      action=""
-      method="post"
-      enctype="multipart/form-data"
-      class="form-section"
-    >
-      <div class="mb-4">
-        <h3 class="text-primary">Submit YouTube URL</h3>
-        <input
-          id="youtubeInput"
-          type="text"
-          class="form-control form-control-lg"
-          name="link"
-          placeholder=""
-          value="{{ link }}"
-          style="font-size: 1.1rem; padding: 15px"
-        />
-        <br />
-        <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            name="submit_link"
-            class="btn btn-primary btn-lg"
-          >
-            Submit URL
-          </button>
-        </div>
-      </div>
-    </form>
+            <!-- Submit YouTube Link Form -->
+            <form id="urlForm"action="" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <h3 style="color: #000000;">Submit YouTube Link</h3>
+                    <input type="text" class="form-control" name="link" placeholder="Enter YouTube Link..." value="{{ link }}">
+                    <br>
+                    <div class="d-grid">
+                        <button type="submit" name="submit_link" class="btn btn-primary btn-lg">Submit Link</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
 
     <!-- Upload Video Form -->
     <form
@@ -124,6 +86,7 @@
         <input
           type="file"
           class="form-control"
+          id="video_upload_opt"
           name="video"
           style="font-size: 1.1rem; padding: 15px"
         />
@@ -152,68 +115,8 @@
     {% endif %}
   </div>
 </main>
-
+<script src="../static/js/image_and_upload.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-  function showForm(type) {
-    const container = document.getElementById("container");
-    const urlForm = document.getElementById("urlForm");
-    const fileForm = document.getElementById("fileForm");
 
-    // Show the appropriate form
-    if (type === "url") {
-      urlForm.classList.remove("d-none");
-      fileForm.classList.add("d-none");
-      // Do not change container background color
-    } else if (type === "file") {
-      fileForm.classList.remove("d-none");
-      urlForm.classList.add("d-none");
-      // Do not change container background color
-    }
-
-    // Reset button colors
-    document.getElementById("showUrlForm").classList.remove("btn-active");
-    document.getElementById("showFileForm").classList.remove("btn-active");
-
-    // Add active color to the clicked button
-    if (type === "url") {
-      document.getElementById("showUrlForm").classList.add("btn-active");
-    } else if (type === "file") {
-      document.getElementById("showFileForm").classList.add("btn-active");
-    }
-  }
-
-  // Placeholder typing effect
-  const placeholderWords = [
-    "Enter YouTube URL...",
-    "Paste the link here...",
-    "Submit your video URL...",
-  ];
-  const inputElement = document.getElementById("youtubeInput");
-  let wordIndex = 0;
-  let charIndex = 0;
-  let currentWord = "";
-
-  function typePlaceholder() {
-    if (charIndex < placeholderWords[wordIndex].length) {
-      currentWord += placeholderWords[wordIndex][charIndex];
-      inputElement.placeholder = currentWord;
-      charIndex++;
-      setTimeout(typePlaceholder, 100); // Adjust typing speed
-    } else {
-      setTimeout(() => {
-        charIndex = 0;
-        currentWord = "";
-        wordIndex = (wordIndex + 1) % placeholderWords.length;
-        typePlaceholder();
-      }, 2000); // Pause before next word
-    }
-  }
-
-  // Start the typing effect on page load
-  document.addEventListener("DOMContentLoaded", () => {
-    typePlaceholder();
-  });
-</script>
 
 {% endblock %}

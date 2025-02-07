@@ -23,133 +23,7 @@
         color: #fcfbf9;
       }
 
-      .text-center h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #000000; /* Restored original title color */
-        border-bottom: 2px solid #000000; /* Restored original underline */
-        padding-bottom: 10px;
-      }
-
-      .btn-5 {
-        font-family: "Space Grotesk", sans-serif !important;
-        width: 100%;
-        color: #f8f9fa;
-        height: 40px;
-        line-height: 42px;
-        padding: 0;
-        border: none;
-        background: linear-gradient(0deg, #1f1f1f, #1f1f1f 100%);
-        position: relative;
-        text-align: center;
-        transition: 400ms ease all;
-      }
-
-      .btn-5 span {
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        line-height: 40px;
-        font-size: 1.5rem;
-      }
-
-      .btn-5:before,
-      .btn-5:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 2px;
-        width: 0;
-        background: #000000;
-        transition: 400ms ease all;
-      }
-
-      .btn-5:after {
-        right: inherit;
-        top: inherit;
-        left: 0;
-        bottom: 0;
-      }
-
-      .btn-5:hover {
-        color: #000000;
-        background: transparent;
-        box-shadow: none;
-      }
-
-      .btn-5:hover:before,
-      .btn-5:hover:after {
-        width: 100%;
-        transition: 800ms ease all;
-      }
-
-      .container {
-        max-width: 1000px;
-        min-height: calc(60vh - 60px);
-        width: 100%;
-        padding: 4rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgb(0, 0, 0);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: #fcfbf9;
-        position: relative;
-        overflow: hidden;
-      }
-
-      input.form-control {
-        font-family: "Space Grotesk", sans-serif !important;
-        font-size: 1.2rem;
-        border: 1px solid #000000;
-        padding: 15px;
-        border-radius: 10px;
-        background-color: #f8f9fa;
-        color: #000000;
-      }
-
-      .answer-box {
-        border: 2px solid #000000;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 4px 10px rgb(0, 0, 0);
-        max-height: 500px;
-        overflow-y: auto;
-        background-color: #f8f9fa;
-        color: #000000;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
-      }
-
-      .answer-box.show {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          max-width: 95%;
-          padding: 1rem;
-        }
-
-        .btn-5 {
-          width: 100%;
-          height: 35px;
-        }
-      }
-
-      .button-right {
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .answer-box-container {
-        margin-bottom: 1rem;
-      }
+      
     </style>
   </head>
 
@@ -177,73 +51,41 @@
         </div>
 
         <!-- Answer Section (Initially Hidden) -->
-        <div class="answer-box-container" id="answerBoxContainer">
-          <div class="mt-4 p-3 border rounded answer-box" id="answerBox">
-            <h5 class="text-secondary">Answer</h5>
-            <p class="mb-0" id="answerText">{{ answer }}</p>
-          </div>
-        </div>
-
+        <!-- Chat Container -->
+         {% if chat_history %}
+        <div class="chat-container" id="chatContainer">
+          {% for que, answer in chat_history %}
+              <div class="user-message">
+                  <p class="question-text">{{ que }}</p>
+              </div>
+              <div class="bot-message">
+                  <p class="answer-text">{{ answer }}</p>
+              </div>
+          {% endfor %}
+      </div>
+      {% endif %}
         <!-- Form Section -->
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" >
           <div class="mb-4">
             <input
               type="text"
               class="form-control form-control-lg"
               id="questionInput"
               name="que"
-              placeholder=""
+              placeholder="Type your question..."
               value="{{ que }}"
             />
           </div>
 
-          <!-- Button Section Aligned to the Right -->
           <div class="button-right">
-            <button
-              id="predict"
-              type="submit"
-              class="custom-btn btn-5"
-              onclick="showAnswer(event)"
-            >
+            <button id="predict" type="submit" class="custom-btn btn-5">
               <span>Get Answer</span>
             </button>
           </div>
         </form>
       </div>
     </main>
-
-    <script>
-      // Typewriter effect for the placeholder
-      const placeholderText = "Type your question...";
-      const inputField = document.getElementById("questionInput");
-      let letterIndex = 0;
-
-      function animatePlaceholder() {
-        if (letterIndex < placeholderText.length) {
-          inputField.setAttribute(
-            "placeholder",
-            placeholderText.substring(0, letterIndex + 1)
-          );
-          letterIndex++;
-          setTimeout(animatePlaceholder, 150);
-        }
-      }
-
-      function showAnswer(event) {
-        event.preventDefault(); // Prevent form submission
-
-        const answerBox = document.getElementById("answerBox");
-        const answerContainer = document.getElementById("answerBoxContainer");
-
-        // Ensure answer box is visible
-        answerBox.classList.add("show");
-
-        // Scroll answer into view
-        answerContainer.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      animatePlaceholder();
-    </script>
+    <script src="../static/js/qa.js"></script>
   </body>
 </html>
 
