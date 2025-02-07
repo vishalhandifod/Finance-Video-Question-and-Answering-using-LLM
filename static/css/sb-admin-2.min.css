@@ -72,9 +72,8 @@ body {
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.5;
-  color: #000;
+  color: #f9f8f6 !important;
   text-align: left;
-  background-color: #1f1f1f !important;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -156,12 +155,12 @@ sup {
   top: -0.5em;
 }
 a {
-  color: #4e73df;
+  color: #000000;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #224abe;
+  color: #777169;
   text-decoration: underline;
 }
 a:not([href]):not([class]) {
@@ -1001,6 +1000,13 @@ pre code {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
   }
+  .col-md-5 img {
+    display: block;
+    margin: 100px auto 0 auto; /* Adds top margin to push the image down */
+    max-width: 120%; /* Adjust width if needed */
+    height: auto;
+  }
+
   .col-md-6 {
     flex: 0 0 50%;
     max-width: 50%;
@@ -1733,12 +1739,17 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #6e707e;
+  color: #000000;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #000000;
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input.form-control:hover {
+  border-color: #000000; /* Darker border color */
+  box-shadow: 0 4px 8px rgb(0, 0, 0); /* Shadow effect on hover */
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -1756,7 +1767,7 @@ pre code {
 .form-control:focus {
   color: #6e707e;
   background-color: #fff;
-  border-color: #bac8f3;
+  border-color: #000000;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
 }
@@ -1795,7 +1806,7 @@ input[type="time"].form-control {
 }
 select.form-control:focus::-ms-value {
   color: #6e707e;
-  background-color: #fff;
+  background-color: #f9f8f6 !important;
 }
 .form-control-file,
 .form-control-range {
@@ -2237,13 +2248,13 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 .btn-primary {
-  color: #f9f8f6 !important;
+  color: #ffffff !important;
   border-color: #000000;
   background: #000;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #000000;
+  color: #9b9b9b !important;
+  background-color: #ffffff;
   border-color: #000000;
 }
 .btn-primary.focus,
@@ -2256,16 +2267,16 @@ fieldset:disabled a.btn {
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #000000;
+  border-color: #000000;
   background-color: transparent;
 }
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2653d4;
-  border-color: #244ec9;
+  background-color: #000000;
+  border-color: #000000;
 }
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
@@ -2862,7 +2873,7 @@ input[type="submit"].btn-block {
   color: #858796;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #f9f8f6 !important;
   background-clip: padding-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
@@ -4213,7 +4224,7 @@ input[type="submit"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #f9f8f6 !important;
   background-clip: border-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
@@ -5986,7 +5997,7 @@ button.bg-dark:hover {
   background-color: transparent !important;
 }
 .border {
-  border: 1px solid #e3e6f0 !important;
+  border: 1px solid #000000 !important;
 }
 .border-top {
   border-top: 1px solid #e3e6f0 !important;
@@ -9123,8 +9134,8 @@ a:focus {
   background-size: cover;
 }
 .bg-gradient-info {
-  background-color: #1f1f1f;
-  background-image: linear-gradient(180deg, #1f1f1f 10%, #1f1f1f 100%);
+  background-color: #f9f8f6;
+  background-image: linear-gradient(180deg, #f9f8f6 10%, #f9f8f6 100%);
   background-size: cover;
 }
 .bg-gradient-warning {
@@ -9345,7 +9356,7 @@ a:focus {
   margin: auto 1rem;
 }
 .topbar .nav-item .nav-link {
-  height: 4.375rem;
+  height: 2.375rem;
   display: flex;
   align-items: center;
   padding: 0 0.75rem;

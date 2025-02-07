@@ -7,8 +7,15 @@
 <main class="d-flex align-items-center justify-content-center vh-100 bg-light">
   <style>
     /* Apply global font styling */
-    * {
+    body {
       font-family: "Space Grotesk", sans-serif !important;
+      background-color: #fcfbf9;
+    }
+
+    .container {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgb(0, 0, 0); /* Keeps shadow but removes extra border */
     }
 
     /* Button active color */
@@ -210,4 +217,3 @@
 </script>
 
 {% endblock %}
-

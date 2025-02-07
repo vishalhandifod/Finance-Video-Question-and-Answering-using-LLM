@@ -1,115 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Register</title>
+    <title>FinChat - Register</title>
+    <link rel="icon" type="image/png" href="static/img/tab_logo.png" />
 
     <!-- Custom fonts for this template-->
-    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+      href="static/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Custom styles for this template-->
-    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet" />
 
-</head>
+    <style>
+      body {
+        background: linear-gradient(to right, #f9f8f6, #f9f8f6);
+        font-family: "Space Grotesk", sans-serif !important;
+      }
 
-<body class="bg-gradient-info">
+      .card-body.p-0 {
+        margin-top: -30px; /* Adjust this value to move it upwards */
+      }
 
-    <div class="container">
+      .card {
+        border-radius: 10px;
+        border: 10px solid #ced4da; /* Add a border with color */
+        box-shadow: 0px 4px 12px rgb(0, 0, 0);
+      }
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                            </div>
-                            <form class="user" action="" method="post" enctype="multipart/form-data">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name"
-                                            name="name" value="{{ name }}" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name"
-                                            name="lname" value="{{ lname }}" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address"
-                                        name="email" value="{{ email }}" required>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password"
-                                            name="password" value="{{ password }}" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password"
-                                            name="rpassword" value="{{ rpassword }}" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="What is the name of your pet?"
-                                        name="pet" value="{{ pet }}" required>
-                                </div>
-                                <button name="sub" value="Submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </button>
-                                <hr>
-                                <!--a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a-->
-                                <div class="text-center text-danger">
-                                {{ error }}
-                                </div>
-                            </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login">Already have an account? Login!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      .bg-register-image {
+        background: url("static/img/register-bg.jpg") center/cover no-repeat;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+        display: flex;
+        align-items: center !important; /* Centers vertically */
+        justify-content: center !important; /* Centers horizontally */
+      }
+
+      .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .form-control:focus {
+        border-color: #000000;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-user {
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+      .text-danger {
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .bg-register-image {
+          display: none;
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .form-control,
+      .btn-user {
+        font-family: "Space Grotesk", sans-serif !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div
+        class="card o-hidden border-0 shadow-lg w-100"
+        style="max-width: 800px"
+      >
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-md-5 d-none d-md-block">
+              <img
+                src="static/img/reg.png"
+                alt="Register"
+                class="img-fluid rounded-left"
+              />
             </div>
-        </div>
 
+            <div class="col-md-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <img
+                    src="static/img/logo.png"
+                    alt="FinChat Logo"
+                    class="img-fluid mb-4"
+                    style="max-width: 200px"
+                  />
+
+                  <h1 class="h4 text-gray-900 mb-4">Create an Account</h1>
+                </div>
+                <form
+                  class="user"
+                  action=""
+                  method="post"
+                  enctype="multipart/form-data"
+                >
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        placeholder="First Name"
+                        name="name"
+                        value="{{ name }}"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        placeholder="Last Name"
+                        name="lname"
+                        value="{{ lname }}"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control form-control-user"
+                      placeholder="Email Address"
+                      name="email"
+                      value="{{ email }}"
+                      required
+                    />
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3">
+                      <input
+                        type="password"
+                        class="form-control form-control-user"
+                        placeholder="Password"
+                        name="password"
+                        value="{{ password }}"
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="password"
+                        class="form-control form-control-user"
+                        placeholder="Repeat Password"
+                        name="rpassword"
+                        value="{{ rpassword }}"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control form-control-user"
+                      placeholder="What is the name of your pet?"
+                      name="pet"
+                      value="{{ pet }}"
+                      required
+                    />
+                  </div>
+                  <button
+                    name="sub"
+                    value="Submit"
+                    class="btn btn-primary btn-user btn-block"
+                  >
+                    Register Account
+                  </button>
+                  <div class="text-center text-danger mt-2">{{ error }}</div>
+                </form>
+                <hr />
+                <div class="text-center">
+                  <a class="small" href="forgot">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" href="login"
+                    >Already have an account? Login!</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="static/vendor/jquery/jquery.min.js"></script>
     <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
     <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
     <script src="static/js/sb-admin-2.min.js"></script>
-
-</body>
-
+  </body>
 </html>
