@@ -208,48 +208,6 @@ def upload_and_image():
         success=success,
     )
 
-@app.route("/image", methods=["GET", "POST"])
-def image():
-    global paragraph
-    global name
-
-    if request.method == "POST":
-        error = ""
-        success = ""
-        link = request.form["link"]
-
-        try:
-            # Download audio and transcribe
-            name = download_audio(link)  # Save audio as audio.wav
-            paragraph = transcribe_audio("audio.wav")
-
-            # Check if the content is finance-related
-            is_finance = is_finance_related(paragraph)
-
-            if is_finance:
-                paragraph = model.restore_punctuation(
-                    paragraph
-                )  
-                return redirect(url_for("qa"))
-            else:
-                error = "This video is not related to Finance. Please provide another video link."
-
-        except Exception as e:
-            # Catch any unexpected errors and provide feedback
-            error = f"An error occurred: {str(e)}. Please try again."
-
-        return render_template(
-            "image.html",
-            name=name,
-            link=link,
-            paragraph=paragraph,
-            error=error,
-            success=success,
-        )
-
-    return render_template("image.html", name=name)
-
-
 @app.route("/qa", methods=["GET", "POST"])
 def qa():
     global name
@@ -272,53 +230,6 @@ def qa():
             session.modified = True  # Save session changes
         # return render_template("qa.html", name=name, que=que, answer=answer)
     return render_template("qa.html", chat_history=session["chat_history"])
-
-
-
-
-@app.route("/upload", methods=["GET", "POST"])
-def upload():
-    global paragraph  # Store paragraph globally for reuse in `videoQA`
-    error = ""
-    success = ""
-
-    if request.method == "POST":
-        try:
-            # Save the uploaded video file
-            savepath = "upload/"
-            f = request.files["doc"]
-            filepath = os.path.join(savepath, secure_filename("test.mp4"))
-            f.save(filepath)
-
-            # Extract audio from the video
-            clip = VideoFileClip(filepath)
-            clip.audio.write_audiofile("audio.wav")
-
-            # Split and transcribe the audio
-            chunk_paths = split_audio("audio.wav")
-            paragraphs = []
-
-            for chunk_path in chunk_paths:
-                audio = sr.AudioFile(chunk_path)
-                with audio as source:
-                    audio_file = r.record(source)
-                paragraphs.append(r.recognize_google(audio_file))
-
-            # Combine all the transcriptions
-            paragraph = " ".join(paragraphs)
-
-            # Check if the content is finance-related
-            if is_finance_related(paragraph):
-                # Redirect to videoQA page with the transcribed paragraph
-                return redirect(url_for("vqa"))
-            else:
-                error = "This video is not related to Finance. Please upload another video."
-        
-        except Exception as e:
-            error = f"An error occurred during processing: {str(e)}"
-            print(error)
-
-    return render_template("upload.html", error=error, success=success)
 
 
 @app.route("/videoQA", methods=["GET", "POST"])
